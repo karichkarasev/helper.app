@@ -1,23 +1,26 @@
 package com.sandwich.helper.model.users;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
+import lombok.Data;
 
+import java.time.Instant;
 import java.util.Date;
 
+@Data
 @Entity
+@Table(name="users")
 public class UserEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
+    @Column(nullable = false)
     private String full_name;
+    @Column(unique = true, nullable = false)
     private String email;
     private String phone;
+    @Column(nullable = false)
     private String password;
-    private Date created_at;
 
     public void setFullName(String full_name) {
         this.full_name = full_name;
@@ -35,7 +38,4 @@ public class UserEntity {
         this.password = password;
     }
 
-    public void setDate(Date created_at) {
-        this.created_at = created_at;
-    }
 }

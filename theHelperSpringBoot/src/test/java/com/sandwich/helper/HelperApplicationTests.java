@@ -22,7 +22,6 @@ class HelperApplicationTests {
         user.setEmail("example@email.com");
         user.setPhone("+77777777777");
         user.setPassword("adminadmin");
-        user.setDate(Date.from(Instant.now()));
         userDao.save(user);
     }
 

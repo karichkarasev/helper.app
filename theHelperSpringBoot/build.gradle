@@ -24,6 +24,10 @@ dependencies {
 	testImplementation 'org.springframework.boot:spring-boot-starter-data-jpa-test'
 	testImplementation 'org.springframework.boot:spring-boot-starter-webmvc-test'
 	testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
+    compileOnly 'org.projectlombok:lombok:1.18.38'
+    annotationProcessor 'org.projectlombok:lombok:1.18.38'
+    // Source: https://mvnrepository.com/artifact/org.springframework.security/spring-security-core
+    implementation("org.springframework.security:spring-security-core:7.2.0")
 }
 
 tasks.named('test') {
