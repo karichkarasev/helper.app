@@ -15,15 +15,27 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import org.buterblade.thehelperapp.MainActivity;
 import org.buterblade.thehelperapp.R;
+import org.buterblade.thehelperapp.model.UserEntity;
+import org.buterblade.thehelperapp.retrofit.RetrofitService;
+import org.buterblade.thehelperapp.retrofit.UserEntityApi;
+import org.json.JSONObject;
+
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 public class RegisterActivity extends AppCompatActivity {
 
     EditText nameOutput;
     EditText emailOutput;
     EditText passwordOutput;
-
     Button registerButton;
     Button loginLink;
+    RetrofitService retrofitService = new RetrofitService();
+    UserEntityApi userEntityApi = retrofitService.getRetrofit().create(UserEntityApi.class);
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -82,12 +94,35 @@ public class RegisterActivity extends AppCompatActivity {
             showMessage("Пароль должен содержать минимум 8 символов");
             return;
         }
-        showMessage("Регистрация успешна!");
-        Intent intent = new Intent(
-                RegisterActivity.this,
-                MainActivity.class
-        );
-        startActivity(intent);
+
+        UserEntity user = new UserEntity();
+        user.setFullName(name);
+        user.setEmail(email);
+        user.setPassword(password);
+
+        userEntityApi.save(user)
+                        .enqueue(new Callback<UserEntity>() {
+                            @Override
+                            public void onResponse(Call<UserEntity> call, Response<UserEntity> response) {
+                                if(response.isSuccessful()) {
+                                    showMessage("Успешная регистрация");
+                                    Intent intent = new Intent(
+                                            RegisterActivity.this,
+                                            MainActivity.class
+                                    );
+                                    startActivity(intent);
+                                } else if (response.code() == 409) {
+                                    try {
+                                        String errorBody = response.errorBody().string();
+                                        JSONObject jsonObject = new JSONObject(errorBody);
+                                        showMessage(jsonObject.getString("message"));
+                                    } catch (Exception e) {}
+                                    emailOutput.setText(null);
+                                }
+                            }
+                            @Override
+                            public void onFailure(Call<UserEntity> call, Throwable t) {showMessage("Ошибка соединения");}
+                        });
     }
     private void showMessage(String message) {
         Toast.makeText(this, message, LENGTH_SHORT).show();
