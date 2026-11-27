@@ -1,0 +1,63 @@
+<resources>
+    <string name="app_name">theHelperApp</string>
+    <string name="logo_text">Помогайка!</string>
+    <string name="welcome_title">С возвращением!</string>
+    <string name="welcome_subtitle">Войдите, чтобы искать помощь от добрых людей либо помогать и находить добрые дела рядом.</string>
+    <string name="login_card_title">Вход в аккаунт</string>
+    <string name="email_label">Электронная почта</string>
+    <string name="email_hint">you@example.com</string>
+    <string name="password_label">Пароль</string>
+    <string name="password_hint">Введите пароль</string>
+    <string name="forgot_password">Забыли пароль?</string>
+    <string name="login_button">Войти</string>
+    <string name="new_user_question">Впервые в Помогайке?</string>
+    <string name="register_link">Зарегистрироваться</string>
+
+    <string name="register_title">Регистрация</string>
+    <string name="register_subtitle">Станьте частью нашего сообщества!</string>
+    <string name="register_card_title">Создать аккаунт</string>
+    <string name="name_label">Имя и фамилия</string>
+    <string name="name_hint">Как вас зовут?</string>
+    <string name="password_register_hint">Придумайте пароль</string>
+    <string name="password_requirement">Не менее 8 символов, включая буквы и цифры</string>
+    <string name="terms_accept">Принимаю условия использования и политику конфиденциальности</string>
+    <string name="register_button">Зарегистрироваться</string>
+    <string name="already_have_account">Уже есть аккаунт?</string>
+    <string name="login_link">Войти</string>
+    <string name="password_visibility_desc">Показать пароль</string>
+
+    <string name="main_subtitle">Помощь рядом, когда она нужна</string>
+    <string name="banner_title">Нужна помощь\nна 15–30 минут?</string>
+    <string name="banner_desc">Найдём проверенного волонтёра поблизости</string>
+    <string name="create_request">Создать заявку</string>
+    <string name="categories_title">С чем вам помочь?</string>
+    <string name="cat_products">Продукты</string>
+    <string name="cat_medicines">Лекарства</string>
+    <string name="cat_animals">Животные</string>
+    <string name="cat_help">Помощь</string>
+    <string name="cat_escort">Сопровождение</string>
+    <string name="cat_other">Другое</string>
+    <string name="nav_main">Главная</string>
+    <string name="nav_requests">Заявки</string>
+    <string name="nav_profile">Профиль</string>
+
+    <string name="create_request_title">Создать заявку</string>
+    <string name="create_request_subtitle">Расскажите, какая помощь вам нужна</string>
+    <string name="request_history">История заявок</string>
+    <string name="empty_history">Пусто!</string>
+    <string name="publish_request">Опубликовать заявку</string>
+
+    <string name="profile_title">Мой профиль</string>
+    <string name="user_name_default">Пользователь</string>
+    <string name="user_role_client">Клиент</string>
+    <string name="stats_tasks">Задания</string>
+    <string name="stats_hours">Часы</string>
+    <string name="stats_orgs">Организации</string>
+    <string name="edit_profile">Редактировать профиль</string>
+    <string name="my_actions">Мои действия</string>
+    <string name="action_history">История заявок</string>
+    <string name="action_personal_data">Личные данные</string>
+    <string name="action_notifications">Уведомления</string>
+    <string name="action_support">Поддержка</string>
+    <string name="action_settings">Настройки</string>
+</resources>
